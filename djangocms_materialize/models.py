@@ -89,3 +89,15 @@ class MatButtonModel(CMSPlugin, ButtonMixin):
 
     def is_disabled(self):
         return u'disabled' if self.disabled else u''
+
+
+class MatChipTagModel(CMSPlugin):
+    """
+    Model class to store the configuration of the Chip/Tag plugin.
+    """
+    caption = models.CharField(max_length=100, default='', blank=True, null=True, verbose_name=_('Caption'))
+    image = FilerImageField(verbose_name=_('Image'), blank=True, null=True, on_delete=models.SET_NULL)
+    image_alt = models.CharField(max_length=100,default='', blank=True, null=True,
+                                 verbose_name=_('Alternate text for image'))
+    is_tag = models.BooleanField(default=False, verbose_name=_('Is a Tag'))
+

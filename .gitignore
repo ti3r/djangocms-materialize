@@ -87,3 +87,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Any migration scripts that could be generated during development
+djangocms_materialize/migrations/0*.py 

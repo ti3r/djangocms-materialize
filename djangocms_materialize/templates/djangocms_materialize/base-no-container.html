@@ -1,0 +1,30 @@
+<!doctype html>
+{% load cms_tags menu_tags sekizai_tags staticfiles analytical %}
+<html>
+    <head>
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% analytical_head_top %}
+
+        {% render_block "css" %}
+
+        {% analytical_head_bottom %}
+    </head>
+    <body>
+        {% cms_toolbar %}
+        {% analytical_body_top %}
+
+        <div>
+            <ul class="nav">
+                {% show_menu 0 100 100 100 %}
+            </ul>
+            {% block content %}{% endblock content %}
+        </div>
+        {% render_block "js" %}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        {% analytical_body_bottom %}
+    </body>
+</html>

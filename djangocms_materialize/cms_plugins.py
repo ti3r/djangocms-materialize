@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext_lazy as _
-from .models import MatButtonModel
+from .models import MatButtonModel, MatChipTagModel
 
 
 class MatButton(CMSPluginBase):
@@ -15,5 +15,15 @@ class MatButton(CMSPluginBase):
     cache = True
     model = MatButtonModel
 
+class MatChipTag(CMSPluginBase):
+    """
+    Plugin to display a materialize chip or tag component
+    """
+    module = _("Materialize")
+    name = _("Chip / Tag")
+    render_template = 'djangocms_materialize/components/chip-tag.html'
+    cache = True
+    model = MatChipTagModel
 
 plugin_pool.register_plugin(MatButton)
+plugin_pool.register_plugin(MatChipTag)
