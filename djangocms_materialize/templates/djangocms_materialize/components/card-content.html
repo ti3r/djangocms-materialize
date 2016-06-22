@@ -1,0 +1,5 @@
+{% load cms_tags %}
+<div class="{{instance.get_content_class}} {{instance.extra_classes}}">
+    <span class="card-title">{{instance.title}}</span>
+    {% for plugin in instance.child_plugin_instances %} {% render_plugin plugin %} {% endfor %}
+</div>
